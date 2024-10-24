@@ -14,9 +14,11 @@ import { NativeModules } from 'react-native';
 import Event from './models/Event';
 import { LogLevel } from './models/LogLevel';
 import { PrivacyStatus } from './models/PrivacyStatus';
+import InitOptions from './models/InitOptions';
 
 interface IMobileCore {
   extensionVersion: () => Promise<string>;
+  initializeSDK: (appId?: String, options?: InitOptions) => Promise<void>;
   configureWithAppId: (appId?: String) => void;
   updateConfiguration: (configMap?: Record<string, any>) => void;
   setLogLevel: (mode: LogLevel) => void;
@@ -47,6 +49,10 @@ const MobileCore: IMobileCore = {
    */
   extensionVersion(): Promise<string> {
     return Promise.resolve(RCTAEPCore.extensionVersion());
+  },
+
+  initializeSDK(appId?: String, options?: InitOptions): Promise<void> {
+    return RCTAEPCore.initializeSDK(appId, options);
   },
 
   /**

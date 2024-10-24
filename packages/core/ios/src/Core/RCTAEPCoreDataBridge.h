@@ -30,4 +30,6 @@ governing permissions and limitations under the License.
 
 + (NSDictionary *_Nonnull)dictionaryFromEvent: (nonnull AEPEvent *) event;
 
++ (AEPInitOptions *_Nullable)initOptionsFromDictionary: (nullable NSDictionary *) dict;
+
 @end

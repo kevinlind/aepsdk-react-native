@@ -48,6 +48,12 @@ static NSString* const FAILED_TO_CONVERT_EVENT_MESSAGE = @"Failed to convert dic
     return [NSData dataWithData:result];
 }
 
+RCT_EXPORT_METHOD(initializeSDK: (NSString *) appId options: (nullable NSDictionary *) options resolve: (RCTPromiseResolveBlock) resolve rejecter: (RCTPromiseRejectBlock) reject) {
+       [AEPMobileCore initialize:appId options:[RCTAEPCoreDataBridge initOptionsFromDictionary:options] completion:^() {
+            resolve(nil);
+        }];
+}
+
 RCT_EXPORT_METHOD(extensionVersion: (RCTPromiseResolveBlock) resolve rejecter:(RCTPromiseRejectBlock)reject) {
     resolve([AEPMobileCore extensionVersion]);
 }

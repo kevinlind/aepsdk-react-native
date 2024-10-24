@@ -31,6 +31,10 @@ static NSString* const EVENT_TYPE_KEY = @"eventType";
 static NSString* const EVENT_SOURCE_KEY = @"eventSource";
 static NSString* const EVENT_DATA_KEY = @"eventData";
 
+// InitOptions
+static NSString* const DISABLE_AUTO_LIFECYCLE_TRACKING_KEY = @"disableAutomaticLifecycleTracking";
+static NSString* const ADDITIONAL_CONTEXT_DATA_KEY = @"additionalContextData";
+
 + (AEPEvent *)eventFromDictionary: (nonnull NSDictionary *) dict {
     NSString *name = [dict objectForKey:EVENT_NAME_KEY];
     NSString *type = [dict objectForKey:EVENT_TYPE_KEY];
@@ -51,6 +55,17 @@ static NSString* const EVENT_DATA_KEY = @"eventData";
     eventDict[EVENT_DATA_KEY] = event.data;
 
     return eventDict;
+}
+
++ (AEPInitOptions *)initOptionsFromDictionary: (nullable NSDictionary *) dict {
+    if (!dict) {
+        return nil;
+    }
+
+    bool disableAutomaticLifecycleTracking = [[dict objectForKey:DISABLE_AUTO_LIFECYCLE_TRACKING_KEY] isKindOfClass:[NSNumber class]] ? [[dict objectForKey:DISABLE_AUTO_LIFECYCLE_TRACKING_KEY] boolValue] : NO;
+    NSDictionary *lifecycleData = [[dict objectForKey:ADDITIONAL_CONTEXT_DATA_KEY] isKindOfClass:[NSDictionary class]] ? [dict objectForKey:ADDITIONAL_CONTEXT_DATA_KEY] : nil;
+
+    return [[AEPInitOptions alloc] initWithDisableAutomaticLifecycleTracking:disableAutomaticLifecycleTracking additionalContextData:lifecycleData];
 }
 
 + (AEPPrivacyStatus)privacyStatusFromString: (NSString *) statusString {

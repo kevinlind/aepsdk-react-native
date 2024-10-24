@@ -19,6 +19,7 @@ import { LogLevel } from './models/LogLevel';
 import { MobileVisitorAuthenticationState } from './models/MobileVisitorAuthenticationState';
 import { PrivacyStatus } from './models/PrivacyStatus';
 import VisitorID from './models/VisitorID';
+import InitOptions from './models/InitOptions';
 
 export {
   // Native models
@@ -27,6 +28,7 @@ export {
   MobileVisitorAuthenticationState,
   PrivacyStatus,
   VisitorID,
+  InitOptions,
   // Native modules
   Identity,
   Lifecycle,
