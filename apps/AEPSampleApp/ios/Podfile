@@ -28,6 +28,12 @@ end
 target 'aepsampleapp' do
   config = use_native_modules!
 
+  pod 'AEPCore', :git => 'https://github.com/kevinlind/aepsdk-core-ios', :branch => 'feature/simplifyStart'
+  pod 'AEPLifecycle', :git => 'https://github.com/kevinlind/aepsdk-core-ios', :branch => 'feature/simplifyStart'
+  pod 'AEPIdentity', :git => 'https://github.com/kevinlind/aepsdk-core-ios', :branch => 'feature/simplifyStart'
+  pod 'AEPSignal', :git => 'https://github.com/kevinlind/aepsdk-core-ios', :branch => 'feature/simplifyStart'
+  pod 'AEPServices', :git => 'https://github.com/kevinlind/aepsdk-core-ios', :branch => 'feature/simplifyStart'
+
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.

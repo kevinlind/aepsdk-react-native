@@ -28,8 +28,17 @@ import TargetView from './extensions/TargetView';
 import PlacesView from './extensions/PlacesView';
 import {NavigationProps} from './types/props';
 import CampaignClassicView from './extensions/CampaignClassicView';
+import { useEffect } from 'react';
+import { MobileCore, InitOptions, LogLevel } from "@adobe/react-native-aepcore";
 
 function HomeScreen({navigation}: NavigationProps) {
+  useEffect(() => {
+    MobileCore.setLogLevel(LogLevel.VERBOSE);
+
+    let options = new InitOptions(false, {"test": "data"});
+    MobileCore.initializeSDK("Environment-File-ID", options)
+  }, []);
+
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Button
