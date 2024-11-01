@@ -12,11 +12,11 @@ governing permissions and limitations under the License.
 
 class InitOptions {
   disableAutomaticLifecycleTracking?: boolean;
-  additionalContextData?: Record<string, any>;
+  additionalContextData?: Record<string, string>;
 
   constructor(
     disableAutomaticLifecycleTracking?: boolean,
-    additionalContextData?: Record<string, any>
+    additionalContextData?: Record<string, string>
   ) {
     this.disableAutomaticLifecycleTracking = disableAutomaticLifecycleTracking;
     this.additionalContextData = additionalContextData;
