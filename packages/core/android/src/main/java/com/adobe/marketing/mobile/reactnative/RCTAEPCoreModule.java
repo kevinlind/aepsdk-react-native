@@ -68,8 +68,12 @@ public class RCTAEPCoreModule extends ReactContextBaseJavaModule {
     public void initializeSDK(final String appId, final ReadableMap options, final Promise promise) {
         InitOptions initOptions = buildFromReadableMap(options);
         Application application = (Application) reactContext.getApplicationContext();
-        MobileCore.initializeSDK(application, appId);
-        promise.resolve(null);        
+        MobileCore.initializeSDK(application, appId, initOptions, new AdobeCallback<Object>() {
+            @Override
+            public void call(Object o) {
+                promise.resolve(null);
+            }
+        });
     }
 
     private InitOptions buildFromReadableMap(ReadableMap options) {
@@ -85,7 +89,7 @@ public class RCTAEPCoreModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void configureWithAppId(final String appId) {
+    public void configureWippthAppId(final String appId) {
         MobileCore.configureWithAppID(appId);
     }
 
