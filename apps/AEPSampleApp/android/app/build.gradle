@@ -116,4 +116,20 @@ dependencies {
     }
 }
 
+def version = "67fd56d38a"
+configurations.all {
+    resolutionStrategy {
+        eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == "com.adobe.marketing.mobile" && details.requested.name == "core") {
+                details.useTarget("com.github.praveek.aepsdk-core-android:core:$version")
+            } else if (details.requested.group == "com.adobe.marketing.mobile" && details.requested.name == "identity") {
+                details.useTarget("com.github.praveek.aepsdk-core-android:identity:$version")
+            } else if (details.requested.group == "com.adobe.marketing.mobile" && details.requested.name == "signal") {
+                details.useTarget("com.github.praveek.aepsdk-core-android:signal:$version")
+            } else if (details.requested.group == "com.adobe.marketing.mobile" && details.requested.name == "lifecycle") {
+                details.useTarget("com.github.praveek.aepsdk-core-android:lifecycle:$version")
+            }
+        }
+    }
+}
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

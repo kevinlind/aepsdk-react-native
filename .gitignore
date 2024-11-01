@@ -112,3 +112,6 @@ dist/
 test/.DS_Store
 
 .yarn/
+
+.idea
+.gradle

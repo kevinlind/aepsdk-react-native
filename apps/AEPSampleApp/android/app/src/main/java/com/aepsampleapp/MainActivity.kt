@@ -33,12 +33,12 @@ class MainActivity : ReactActivity() {
 
     override fun onResume() {
         super.onResume()
-        MobileCore.setApplication(application);
-        MobileCore.lifecycleStart(null);
+//        MobileCore.setApplication(application);
+//        MobileCore.lifecycleStart(null);
     }
 
     override fun onPause() {
         super.onPause()
-        MobileCore.lifecyclePause();
+//        MobileCore.lifecyclePause();
     }
 }
