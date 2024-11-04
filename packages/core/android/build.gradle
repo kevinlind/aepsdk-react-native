@@ -41,8 +41,13 @@ repositories {
 
 dependencies {
     implementation "com.facebook.react:react-native:+"
-    api "com.adobe.marketing.mobile:core:3.+"
-    api "com.adobe.marketing.mobile:signal:3.+"
-    api "com.adobe.marketing.mobile:identity:3.+"
-    api "com.adobe.marketing.mobile:lifecycle:3.+"
+//    api "com.adobe.marketing.mobile:core:3.+"
+//    api "com.adobe.marketing.mobile:signal:3.+"
+//    api "com.adobe.marketing.mobile:identity:3.+"
+//    api "com.adobe.marketing.mobile:lifecycle:3.+"
+    def version = "67fd56d38a"
+    api "com.github.praveek.aepsdk-core-android:core:$version"
+    api "com.github.praveek.aepsdk-core-android:signal:$version"
+    api "com.github.praveek.aepsdk-core-android:identity:$version"
+    api "com.github.praveek.aepsdk-core-android:lifecycle:$version"
 }

@@ -71,29 +71,29 @@ class MainApplication : Application(), ReactApplication {
     ReactNativeFlipper.initializeFlipper(this, reactNativeHost.reactInstanceManager)
 
 
-    MobileCore.setApplication(this)
-    MobileCore.setLogLevel(LoggingMode.VERBOSE)
-    MobileCore.configureWithAppID("YOUR-APP-ID")
-    val extensions: List<Class<out Extension?>> = Arrays.asList(
-      Lifecycle.EXTENSION,
-      Signal.EXTENSION,
-      Edge.EXTENSION,
-      Identity.EXTENSION,
-      Consent.EXTENSION,
-      EdgeBridge.EXTENSION,
-      Messaging.EXTENSION,
-      UserProfile.EXTENSION,
-      Assurance.EXTENSION,
-      Places.EXTENSION,
-      Target.EXTENSION,
-      Optimize.EXTENSION,
-      com.adobe.marketing.mobile.Identity.EXTENSION
-    )
-    MobileCore.registerExtensions(extensions,
-      AdobeCallback { o: Any? ->
-        MobileCore.lifecycleStart(
-          null
-        )
-      })
+//    MobileCore.setApplication(this)
+//    MobileCore.setLogLevel(LoggingMode.VERBOSE)
+//    MobileCore.configureWithAppID("YOUR-APP-ID")
+//    val extensions: List<Class<out Extension?>> = Arrays.asList(
+//      Lifecycle.EXTENSION,
+//      Signal.EXTENSION,
+//      Edge.EXTENSION,
+//      Identity.EXTENSION,
+//      Consent.EXTENSION,
+//      EdgeBridge.EXTENSION,
+//      Messaging.EXTENSION,
+//      UserProfile.EXTENSION,
+//      Assurance.EXTENSION,
+//      Places.EXTENSION,
+//      Target.EXTENSION,
+//      Optimize.EXTENSION,
+//      com.adobe.marketing.mobile.Identity.EXTENSION
+//    )
+//    MobileCore.registerExtensions(extensions,
+//      AdobeCallback { o: Any? ->
+//        MobileCore.lifecycleStart(
+//          null
+//        )
+//      })
   }
 }

@@ -15,6 +15,7 @@ import com.adobe.marketing.mobile.AdobeCallback;
 import com.adobe.marketing.mobile.AdobeCallbackWithError;
 import com.adobe.marketing.mobile.AdobeError;
 import com.adobe.marketing.mobile.Event;
+import com.adobe.marketing.mobile.InitOptions;
 import com.adobe.marketing.mobile.services.Log;
 import com.adobe.marketing.mobile.LoggingMode;
 import com.adobe.marketing.mobile.MobileCore;
@@ -25,9 +26,14 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
+import com.facebook.react.bridge.ReadableType;
 
 import android.app.Application;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class RCTAEPCoreModule extends ReactContextBaseJavaModule {
@@ -59,7 +65,31 @@ public class RCTAEPCoreModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void configureWithAppId(final String appId) {
+    public void initializeSDK(final String appId, final ReadableMap options, final Promise promise) {
+        InitOptions initOptions = buildFromReadableMap(options);
+        Application application = (Application) reactContext.getApplicationContext();
+        MobileCore.initializeSDK(application, appId, initOptions, new AdobeCallback<Object>() {
+            @Override
+            public void call(Object o) {
+                promise.resolve(null);
+            }
+        });
+    }
+
+    private InitOptions buildFromReadableMap(ReadableMap options) {
+        boolean disableAutomaticLifecycleTracking = options.getBoolean("disableAutomaticLifecycleTracking");
+        Map<String, String> additionalContextData = RCTAEPMapUtil.toStringMap(options.getMap("additionalContextData"));
+
+        InitOptions.Builder builder = new InitOptions.Builder();
+        builder.setLifecycleAdditionalContextData(additionalContextData);
+        if (disableAutomaticLifecycleTracking) {
+            builder.disableAutomaticLifecycleTracking();
+        }
+        return builder.build();
+    }
+
+    @ReactMethod
+    public void configureWippthAppId(final String appId) {
         MobileCore.configureWithAppID(appId);
     }
 
