@@ -22,7 +22,7 @@ PODS:
     - AEPCore (< 6.0.0, >= 5.3.1)
   - AEPLifecycle (5.3.1):
     - AEPCore (< 6.0.0, >= 5.3.1)
-  - AEPMessaging (5.4.0):
+  - AEPMessaging (5.5.0):
     - AEPCore (< 6.0.0, >= 5.3.0)
     - AEPEdge (< 6.0.0, >= 5.0.2)
     - AEPEdgeIdentity (< 6.0.0, >= 5.0.0)
@@ -1198,7 +1198,9 @@ PODS:
     - React-jsi (= 0.73.6)
     - React-logger (= 0.73.6)
     - React-perflogger (= 0.73.6)
-  - RNCMaskedView (0.3.1):
+  - RNCMaskedView (0.3.2):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
     - React-Core
   - RNGestureHandler (2.20.2):
     - glog
@@ -1513,19 +1515,19 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AEPCore:
-    :commit: 90401e8c660e0cbf09284fd4e538696373f9833c
+    :commit: 200a9db6802f43fac1954ca2204548772e5d1590
     :git: https://github.com/kevinlind/aepsdk-core-ios
   AEPIdentity:
-    :commit: 90401e8c660e0cbf09284fd4e538696373f9833c
+    :commit: 200a9db6802f43fac1954ca2204548772e5d1590
     :git: https://github.com/kevinlind/aepsdk-core-ios
   AEPLifecycle:
-    :commit: 90401e8c660e0cbf09284fd4e538696373f9833c
+    :commit: 200a9db6802f43fac1954ca2204548772e5d1590
     :git: https://github.com/kevinlind/aepsdk-core-ios
   AEPServices:
-    :commit: 90401e8c660e0cbf09284fd4e538696373f9833c
+    :commit: 200a9db6802f43fac1954ca2204548772e5d1590
     :git: https://github.com/kevinlind/aepsdk-core-ios
   AEPSignal:
-    :commit: 90401e8c660e0cbf09284fd4e538696373f9833c
+    :commit: 200a9db6802f43fac1954ca2204548772e5d1590
     :git: https://github.com/kevinlind/aepsdk-core-ios
 
 SPEC CHECKSUMS:
@@ -1538,7 +1540,7 @@ SPEC CHECKSUMS:
   AEPEdgeIdentity: 3161ff33434586962946912d6b8e9e8fca1c4d23
   AEPIdentity: 345c9bd3e5f2910148fa46a02dbc89cc5e248196
   AEPLifecycle: b2c4d928a8556410b8d2ef5763432bc97ebde417
-  AEPMessaging: 03422e902fc0e30c39c6f62e36a81146a766a3da
+  AEPMessaging: 6c7ae2cc3a48046ffb1113365dd2ab1629993bdf
   AEPOptimize: 2ad6258dbe0f6555e74a55fa6b16bb11ce3f54a9
   AEPPlaces: 9eec5f88306033ce8190ec30727cbdd4008cc018
   AEPRulesEngine: fe5800653a4bee07b1e41e61b4d5551f0dba557b
@@ -1619,7 +1621,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 9636eee762c699ca7c85751a359101797e4c8b3b
   React-utils: d16c1d2251c088ad817996621947d0ac8167b46c
   ReactCommon: 2aa35648354bd4c4665b9a5084a7d37097b89c10
-  RNCMaskedView: 090213d32d8b3bb83a4dcb7d12c18f0152591906
+  RNCMaskedView: c8e1f01fc0f41ddf4e16246aef1143b3311588ca
   RNGestureHandler: 93938f47763bf404d697f7c5d63c280ae4d732e4
   RNReanimated: 51ba6c9ecdde77caf364c7e5ae59a089c7dd98b3
   RNScreens: 69850d4519d95b9359cec15a67bb5f9d0bd75262

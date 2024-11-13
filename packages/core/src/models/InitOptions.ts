@@ -12,14 +12,17 @@ governing permissions and limitations under the License.
 
 class InitOptions {
   disableAutomaticLifecycleTracking?: boolean;
-  additionalContextData?: Record<string, string>;
+  lifecycleAdditionalContextData?: Record<string, string>;
+  iosAppGroup?: string;
 
   constructor(
     disableAutomaticLifecycleTracking?: boolean,
-    additionalContextData?: Record<string, string>
+    lifecycleAdditionalContextData?: Record<string, string>,
+    iosAppGroup?: string
   ) {
     this.disableAutomaticLifecycleTracking = disableAutomaticLifecycleTracking;
-    this.additionalContextData = additionalContextData;
+    this.lifecycleAdditionalContextData = lifecycleAdditionalContextData;
+    this.iosAppGroup = iosAppGroup;
   }
 }
 
